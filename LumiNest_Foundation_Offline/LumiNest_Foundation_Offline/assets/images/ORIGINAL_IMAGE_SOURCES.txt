@@ -1,0 +1,6 @@
+The original five images are intentionally kept as the exact Unsplash URLs from the supplied website.
+hero: https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&q=80&w=2000
+children: https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=1000
+building: https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1200
+story 1: https://images.unsplash.com/photo-1595454223600-91fbddbbf2db?auto=format&fit=crop&q=80&w=400
+story 2: https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400
