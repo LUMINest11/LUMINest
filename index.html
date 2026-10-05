@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<!--
+Original image sources preserved exactly from the supplied website:
+hero: https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&q=80&w=2000
+children: https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=1000
+building: https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1200
+story 1: https://images.unsplash.com/photo-1595454223600-91fbddbbf2db?auto=format&fit=crop&q=80&w=400
+story 2: https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400
+-->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LumiNest Foundation | Every Child Deserves a Safe Place to Grow</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Inter & Outfit) -->
+    
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                        },
+                        navy: {
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#080d1a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+        <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="font-sans text-slate-800 bg-slate-50 antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all duration-300" id="main-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-brand-600 to-emerald-400 flex items-center justify-center text-white shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform duration-300">
+                        <!-- Custom SVG Logo Icon -->
+                        <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
+                            <path d="M12 3L2 12h3v8h14v-8h3L12 3zm0 5c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 10c-2.33 0-4.32-1.45-5.12-3.5h10.24c-.8 2.05-2.79 3.5-5.12 3.5z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="font-heading font-extrabold text-2xl text-navy-900 tracking-tight leading-none block">
+                            Lumi<span class="text-brand-500">Nest</span>
+                        </span>
+                        <span class="text-[10px] uppercase tracking-wider text-slate-500 font-semibold block mt-0.5">Foundation for Children</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <nav class="hidden lg:flex items-center gap-7">
+                    <a href="#home" class="text-sm font-medium text-brand-600 border-b-2 border-brand-500 pb-1">Home</a>
+                    <a href="#about" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">About Us</a>
+                    <a href="#programs" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Our Children</a>
+                    <a href="#our-home" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Our Home</a>
+                    <a href="#get-involved" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Get Involved</a>
+                    <a href="#stories" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">News & Updates</a>
+                    <a href="#contact" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Contact</a>
+                </nav>
+
+                <!-- Header Actions -->
+                <div class="hidden sm:flex items-center gap-4">
+                    <button id="search-btn" class="p-2 text-slate-500 hover:text-navy-900 hover:bg-slate-100 rounded-full transition-colors" aria-label="Search">
+                        <i class="fa-solid fa-magnifying-glass text-lg"></i>
+                    </button>
+                    <button onclick="openDonateModal()" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full font-medium text-sm text-white bg-brand-500 hover:bg-brand-600 shadow-lg shadow-brand-500/25 active:scale-95 transition-all">
+                        <i class="fa-solid fa-heart mr-2 text-rose-200"></i> Donate
+                    </button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="flex lg:hidden items-center gap-2">
+                    <button onclick="openDonateModal()" class="sm:hidden px-3.5 py-1.5 rounded-full text-xs font-semibold text-white bg-brand-500">
+                        <i class="fa-solid fa-heart mr-1"></i> Donate
+                    </button>
+                    <button id="mobile-menu-btn" class="p-2 text-slate-600 hover:bg-slate-100 rounded-lg">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#home" class="block py-2 text-brand-600 font-semibold border-l-4 border-brand-500 pl-3 bg-brand-50/50 rounded-r">Home</a>
+            <a href="#about" class="block py-2 text-slate-600 hover:bg-slate-50 pl-3 rounded">About Us</a>
+            <a href="#programs" class="block py-2 text-slate-600 hover:bg-slate-50 pl-3 rounded">Our Children</a>
+            <a href="#our-home" class="block py-2 text-slate-600 hover:bg-slate-50 pl-3 rounded">Our Home</a>
+            <a href="#get-involved" class="block py-2 text-slate-600 hover:bg-slate-50 pl-3 rounded">Get Involved</a>
+            <a href="#stories" class="block py-2 text-slate-600 hover:bg-slate-50 pl-3 rounded">News & Updates</a>
+            <a href="#contact" class="block py-2 text-slate-600 hover:bg-slate-50 pl-3 rounded">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-navy-900 text-white min-h-[580px] lg:min-h-[640px] flex items-center overflow-hidden">
+        <!-- Hero Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&q=80&w=2000" alt="Smiling Toddler" class="w-full h-full object-cover object-center scale-105">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+            <div class="max-w-2xl space-y-6">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-emerald-300 font-semibold text-xs tracking-wider uppercase border border-white/20">
+                    WELCOME TO LUMINEST FOUNDATION
+                </span>
+                <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
+                    A Safe Home for <br class="hidden sm:inline"><span class="text-brand-500">Brighter</span> Tomorrows
+                </h1>
+                <p class="text-slate-200 text-base sm:text-lg leading-relaxed max-w-xl font-normal">
+                    We provide love, care, protection, and opportunities for motherless and vulnerable children to grow, learn and build a better future.
+                </p>
+                <div class="flex flex-wrap items-center gap-4 pt-2">
+                    <button onclick="openDonateModal()" class="px-7 py-3.5 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-semibold text-base shadow-xl shadow-brand-500/30 hover:scale-105 transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-heart text-white/90"></i> Donate Now
+                    </button>
+                    <a href="#about" class="px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-base border border-white/30 backdrop-blur-md transition-all flex items-center gap-2">
+                        Learn More <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Pillars Grid -->
+    <section class="relative z-20 -mt-10 sm:-mt-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-2xl shadow-xl shadow-slate-200/60 p-6 sm:p-8 border border-slate-100">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-center">
+                
+                <div class="p-4 rounded-xl hover:bg-slate-50 transition-colors group">
+                    <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-rose-50 text-rose-500 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-slate-800 text-sm sm:text-base">Love & Care</h3>
+                </div>
+
+                <div class="p-4 rounded-xl hover:bg-slate-50 transition-colors group">
+                    <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-blue-50 text-blue-500 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-slate-800 text-sm sm:text-base">Safety & Protection</h3>
+                </div>
+
+                <div class="p-4 rounded-xl hover:bg-slate-50 transition-colors group">
+                    <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-amber-50 text-amber-500 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-slate-800 text-sm sm:text-base">Nutrition & Healthcare</h3>
+                </div>
+
+                <div class="p-4 rounded-xl hover:bg-slate-50 transition-colors group">
+                    <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-emerald-50 text-brand-500 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-slate-800 text-sm sm:text-base">Education & Skills</h3>
+                </div>
+
+                <div class="p-4 rounded-xl hover:bg-slate-50 transition-colors group">
+                    <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-purple-50 text-purple-500 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-slate-800 text-sm sm:text-base">Family-Like Environment</h3>
+                </div>
+
+                <div class="p-4 rounded-xl hover:bg-slate-50 transition-colors group">
+                    <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-teal-50 text-teal-500 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-sun"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-slate-800 text-sm sm:text-base">A Brighter Future</h3>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Image Frame -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=1000" alt="Children Smiling" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Decorative Background Blur Accent -->
+                    <div class="absolute -bottom-6 -left-6 w-full h-full bg-brand-500/20 rounded-3xl z-0 filter blur-xl"></div>
+                </div>
+
+                <!-- Right Content -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div>
+                        <span class="text-brand-600 font-bold text-xs tracking-wider uppercase">ABOUT US</span>
+                        <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-navy-900 mt-1">Our Mission is Their Future</h2>
+                    </div>
+                    <p class="text-slate-600 leading-relaxed">
+                        LumiNest Foundation is a non-profit organization dedicated to providing a safe, loving and nurturing home for motherless and vulnerable children. We believe every child deserves care, dignity, and the chance to reach their full potential.
+                    </p>
+
+                    <!-- Goal / Vision / Values Cards -->
+                    <div class="grid sm:grid-cols-3 gap-4 pt-2">
+                        <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm space-y-2">
+                            <div class="w-10 h-10 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center">
+                                <i class="fa-solid fa-bullseye text-lg"></i>
+                            </div>
+                            <h4 class="font-heading font-bold text-navy-900">Our Goal</h4>
+                            <p class="text-xs text-slate-500 leading-normal">To give every child a safe place to grow.</p>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm space-y-2">
+                            <div class="w-10 h-10 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center">
+                                <i class="fa-solid fa-heart text-lg"></i>
+                            </div>
+                            <h4 class="font-heading font-bold text-navy-900">Our Vision</h4>
+                            <p class="text-xs text-slate-500 leading-normal">A world where no child feels alone or unloved.</p>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm space-y-2">
+                            <div class="w-10 h-10 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center">
+                                <i class="fa-solid fa-star text-lg"></i>
+                            </div>
+                            <h4 class="font-heading font-bold text-navy-900">Our Values</h4>
+                            <p class="text-xs text-slate-500 leading-normal">Compassion, Integrity, Accountability, Hope.</p>
+                        </div>
+                    </div>
+
+                    <div class="pt-2">
+                        <a href="#get-involved" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-medium text-sm transition-all shadow-md shadow-brand-500/20">
+                            More About Us <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Programs Section -->
+    <section id="programs" class="py-20 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14 space-y-3">
+                <span class="text-brand-600 font-bold text-xs tracking-wider uppercase">OUR PROGRAMS</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-navy-900">How We Help</h2>
+                <p class="text-slate-600 text-sm sm:text-base">We provide comprehensive care and support to ensure every child is healthy, happy and prepared for the future.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Program 1 -->
+                <div class="bg-slate-50 rounded-2xl p-6 text-center hover:shadow-lg transition-all border border-slate-100 flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-2xl bg-rose-100 text-rose-500 flex items-center justify-center text-2xl mb-4">
+                        <i class="fa-solid fa-baby"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-navy-900 mb-1">Infant Care</h3>
+                    <span class="text-xs font-semibold text-slate-400 bg-white px-3 py-1 rounded-full border border-slate-200 mb-3">(0–2 years)</span>
+                    <p class="text-xs text-slate-600 leading-relaxed">Specialized 24/7 care, pediatric nutrition, and early bonding support for motherless newborns and babies.</p>
+                </div>
+
+                <!-- Program 2 -->
+                <div class="bg-slate-50 rounded-2xl p-6 text-center hover:shadow-lg transition-all border border-slate-100 flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-2xl mb-4">
+                        <i class="fa-solid fa-child"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-navy-900 mb-1">Child Care</h3>
+                    <span class="text-xs font-semibold text-slate-400 bg-white px-3 py-1 rounded-full border border-slate-200 mb-3">(3–12 years)</span>
+                    <p class="text-xs text-slate-600 leading-relaxed">A nurturing, family-like environment with recreational activities, social integration, and guidance.</p>
+                </div>
+
+                <!-- Program 3 -->
+                <div class="bg-slate-50 rounded-2xl p-6 text-center hover:shadow-lg transition-all border border-slate-100 flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center text-2xl mb-4">
+                        <i class="fa-solid fa-book-open"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-navy-900 mb-1">Education & Development</h3>
+                    <span class="text-xs font-semibold text-slate-400 bg-white px-3 py-1 rounded-full border border-slate-200 mb-3">All Ages</span>
+                    <p class="text-xs text-slate-600 leading-relaxed">Quality schooling, tutoring, creative workshops, and skill-building programs for future independence.</p>
+                </div>
+
+                <!-- Program 4 -->
+                <div class="bg-slate-50 rounded-2xl p-6 text-center hover:shadow-lg transition-all border border-slate-100 flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl mb-4">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-navy-900 mb-1">Healthcare & Wellness</h3>
+                    <span class="text-xs font-semibold text-slate-400 bg-white px-3 py-1 rounded-full border border-slate-200 mb-3">Continuous</span>
+                    <p class="text-xs text-slate-600 leading-relaxed">Regular medical checkups, mental health counseling, vaccination drives, and clean living conditions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Campaign & Fundraising Section -->
+    <section class="py-16 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-6 items-stretch">
+                
+                <!-- Left Support Banner -->
+                <div class="lg:col-span-7 bg-navy-900 rounded-3xl p-8 sm:p-10 text-white flex flex-col justify-between relative overflow-hidden shadow-xl min-h-[320px]">
+                    <div class="relative z-10 space-y-4 max-w-lg">
+                        <span class="text-brand-500 font-bold text-xs tracking-wider uppercase">MAKE A DIFFERENCE</span>
+                        <h3 class="font-heading text-3xl font-extrabold text-white">Your Support Changes Lives</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Your generous donation helps us provide food, healthcare, education and a loving home for vulnerable children. Together, we can build a brighter future.
+                        </p>
+                        <div class="pt-2">
+                            <button onclick="openDonateModal()" class="px-6 py-3 bg-white text-navy-900 hover:bg-slate-100 rounded-full font-bold text-sm transition-all shadow-lg flex items-center gap-2">
+                                <i class="fa-solid fa-heart text-brand-500"></i> Donate Now
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Right graphic motif in dark banner -->
+                    <div class="absolute right-0 bottom-0 top-0 opacity-20 pointer-events-none flex items-center pr-6">
+                        <i class="fa-solid fa-seedling text-[180px] text-brand-500"></i>
+                    </div>
+                </div>
+
+                <!-- Right Building Progress Tracker Card -->
+                <div class="lg:col-span-5 bg-emerald-50/70 border border-emerald-100 rounded-3xl p-8 flex flex-col justify-between shadow-sm">
+                    <div class="space-y-4">
+                        <h3 class="font-heading text-xl font-extrabold text-navy-900">Help Us Build Our Home</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            We are raising funds to build a safe and comfortable home for our children in Beirut.
+                        </p>
+                        
+                        <!-- Progress Bar -->
+                        <div class="space-y-2 pt-2">
+                            <div class="flex justify-between text-xs font-bold">
+                                <span class="text-slate-500">Fundraising Progress</span>
+                                <span class="text-brand-600">40%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 h-3 rounded-full overflow-hidden">
+                                <div class="bg-brand-500 h-full rounded-full transition-all duration-1000" style="width: 40%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Amounts breakdown -->
+                        <div class="grid grid-cols-2 gap-4 pt-2 border-t border-emerald-200/60">
+                            <div>
+                                <span class="block text-[11px] font-semibold text-slate-500 uppercase">Target Amount</span>
+                                <span class="font-heading font-extrabold text-slate-800 text-base">$ 37,661</span>
+                            </div>
+                            <div>
+                                <span class="block text-[11px] font-semibold text-slate-500 uppercase">Raised So Far</span>
+                                <span class="font-heading font-extrabold text-brand-600 text-base">$ 15,064</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6">
+                        <button onclick="openDonateModal()" class="w-full py-3 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-bold text-sm transition-all shadow-md shadow-brand-500/20 text-center flex items-center justify-center gap-2">
+                            View Project Details <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Home / Facilities Project -->
+    <section id="our-home" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-10 items-center">
+                <!-- Architectural Image -->
+                <div class="lg:col-span-6">
+                    <div class="rounded-3xl overflow-hidden shadow-lg border border-slate-200">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1200" alt="LumiNest Building Rendering" class="w-full h-80 sm:h-96 object-cover">
+                    </div>
+                </div>
+
+                <!-- Text Description -->
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-brand-600 font-bold text-xs tracking-wider uppercase">OUR HOME</span>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-navy-900">Building a Safe Haven</h2>
+                    <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+                        We are building a modern, child-friendly home with comfortable sleeping areas, a kitchen, clinic, play and learning spaces, and secure facilities — designed for love, care and growth.
+                    </p>
+                    <div>
+                        <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-brand-500 text-brand-600 hover:bg-brand-50 font-bold text-sm transition-all">
+                            View Our Building Project <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials / Stories of Hope -->
+    <section id="stories" class="py-16 bg-slate-50 border-t border-slate-200/60">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h2 class="font-heading text-2xl sm:text-3xl font-extrabold text-navy-900">Stories of Hope</h2>
+                <p class="text-slate-500 text-xs sm:text-sm mt-1">Real stories. Brighter futures.</p>
+            </div>
+
+            <!-- Testimonial Slider Container -->
+            <div class="relative bg-white rounded-3xl p-8 sm:p-10 shadow-sm border border-slate-100 flex flex-col md:flex-row items-center gap-8">
+                <button id="prev-story" class="absolute -left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-brand-500 hover:text-white transition-all z-10">
+                    <i class="fa-solid fa-chevron-left text-xs"></i>
+                </button>
+
+                <!-- Avatar -->
+                <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-4 border-brand-100 flex-shrink-0 shadow-inner">
+                    <img id="story-avatar" src="https://images.unsplash.com/photo-1595454223600-91fbddbbf2db?auto=format&fit=crop&q=80&w=400" alt="Chisom" class="w-full h-full object-cover">
+                </div>
+
+                <!-- Content -->
+                <div class="space-y-3 text-center md:text-left flex-1">
+                    <i class="fa-solid fa-quote-left text-3xl text-brand-500/40"></i>
+                    <p id="story-text" class="text-slate-700 italic text-base sm:text-lg font-medium">
+                        "I feel safe, loved and happy here. I want to be a doctor when I grow up!"
+                    </p>
+                    <div>
+                        <h4 id="story-author" class="font-heading font-bold text-navy-900 text-sm">— Chisom, 7 years old</h4>
+                    </div>
+                </div>
+
+                <button id="next-story" class="absolute -right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-brand-500 hover:text-white transition-all z-10">
+                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="contact" class="bg-navy-950 text-slate-300 pt-16 pb-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-800">
+                
+                <!-- Logo & Short Bio -->
+                <div class="lg:col-span-4 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-brand-500 flex items-center justify-center text-white font-bold">
+                            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                                <path d="M12 3L2 12h3v8h14v-8h3L12 3zm0 5c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 10c-2.33 0-4.32-1.45-5.12-3.5h10.24c-.8 2.05-2.79 3.5-5.12 3.5z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="font-heading font-extrabold text-xl text-white tracking-tight">Lumi<span class="text-brand-500">Nest</span></span>
+                            <span class="text-[9px] uppercase tracking-wider text-slate-400 block">Foundation for Children</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed max-w-sm">
+                        Every Child Deserves a Safe Place to Grow. Dedicated to raising vulnerable infants and children with dignity and care.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="lg:col-span-2 space-y-3">
+                    <h4 class="font-heading font-bold text-white text-sm">Quick Links</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><a href="#home" class="hover:text-brand-500 transition-colors">Home</a></li>
+                        <li><a href="#about" class="hover:text-brand-500 transition-colors">About Us</a></li>
+                        <li><a href="#programs" class="hover:text-brand-500 transition-colors">Our Children</a></li>
+                        <li><a href="#our-home" class="hover:text-brand-500 transition-colors">Our Home</a></li>
+                        <li><a href="#get-involved" class="hover:text-brand-500 transition-colors">Get Involved</a></li>
+                        <li><a href="#stories" class="hover:text-brand-500 transition-colors">News & Updates</a></li>
+                        <li><a href="#contact" class="hover:text-brand-500 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Get Involved -->
+                <div id="get-involved" class="lg:col-span-2 space-y-3">
+                    <h4 class="font-heading font-bold text-white text-sm">Get Involved</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><a href="#" onclick="openDonateModal(); return false;" class="hover:text-brand-500 transition-colors"><i class="fa-solid fa-heart text-rose-400 mr-1.5"></i> Donate</a></li>
+                        <li><a href="#" onclick="openDonateModal(); return false;" class="hover:text-brand-500 transition-colors"><i class="fa-solid fa-user-plus text-brand-500 mr-1.5"></i> Sponsor a Child</a></li>
+                        <li><a href="#contact" class="hover:text-brand-500 transition-colors"><i class="fa-solid fa-hand-holding-hand text-amber-400 mr-1.5"></i> Volunteer</a></li>
+                        <li><a href="#contact" class="hover:text-brand-500 transition-colors"><i class="fa-solid fa-handshake text-blue-400 mr-1.5"></i> Partner With Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter & Social -->
+                <div class="lg:col-span-4 space-y-4">
+                    <h4 class="font-heading font-bold text-white text-sm">Stay Connected</h4>
+                    <div class="flex items-center gap-3">
+                        <a href="#" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-brand-500 flex items-center justify-center text-xs transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-brand-500 flex items-center justify-center text-xs transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-brand-500 flex items-center justify-center text-xs transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-brand-500 flex items-center justify-center text-xs transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-brand-500 flex items-center justify-center text-xs transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+
+                    <div class="pt-2">
+                        <label class="block text-xs font-semibold text-slate-300 mb-2">Subscribe to our newsletter</label>
+                        <form id="newsletter-form" class="flex items-center gap-2">
+                            <input type="email" placeholder="Your email address" required class="w-full px-3 py-2 text-xs rounded-lg bg-slate-900 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-brand-500">
+                            <button type="submit" class="px-4 py-2 bg-brand-500 hover:bg-brand-600 text-white rounded-lg text-xs font-bold transition-all">Subscribe</button>
+                        </form>
+                    </div>
+
+                    <div class="space-y-1 pt-2 text-xs text-slate-400">
+                        <p class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-brand-500"></i> Beirut 1107, Lebanon</p>
+                        <p class="flex items-center gap-2"><i class="fa-solid fa-envelope text-brand-500"></i> info@luminestfoundation.org</p>
+                        <p class="flex items-center gap-2"><i class="fa-solid fa-phone text-brand-500"></i> +234 801 234 5678</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500 gap-4">
+                <p>&copy; 2026 LumiNest Foundation. All rights reserved.</p>
+                <div class="flex items-center gap-3 font-semibold text-slate-400">
+                    <span>Love</span> • <span>Care</span> • <span>Hope</span> • <span>A Brighter Future</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Donation Modal -->
+    <div id="donate-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-navy-950/80 backdrop-blur-sm transition-opacity">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative space-y-6 animate-in fade-in zoom-in duration-200">
+            <!-- Close Button -->
+            <button onclick="closeDonateModal()" class="absolute right-5 top-5 text-slate-400 hover:text-slate-600 p-1">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <div class="text-center space-y-1">
+                <div class="w-12 h-12 bg-emerald-50 text-brand-500 rounded-2xl flex items-center justify-center mx-auto mb-2 text-xl">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+                <h3 class="font-heading font-extrabold text-2xl text-navy-900">Make a Donation</h3>
+                <p class="text-xs text-slate-500">Support vulnerable children at LumiNest Foundation</p>
+            </div>
+
+            <!-- Donation Form -->
+            <form id="donation-form" onsubmit="handleDonation(event)" class="space-y-4">
+                <!-- Currency Select -->
+                <div class="flex rounded-lg bg-slate-100 p-1">
+                    <button type="button" onclick="setCurrency('USD')" id="btn-usd" class="flex-1 py-1.5 text-xs font-bold rounded-md bg-white text-navy-900 shadow-sm">USD ($)</button>
+                </div>
+
+                <!-- Amount Preset Buttons -->
+                <div class="grid grid-cols-3 gap-2" id="preset-amounts">
+                    <button type="button" onclick="selectAmount(4)" class="amount-btn border border-slate-200 hover:border-brand-500 text-xs font-bold py-2.5 rounded-xl transition-all">$ 4</button>
+                    <button type="button" onclick="selectAmount(11)" class="amount-btn border border-slate-200 hover:border-brand-500 text-xs font-bold py-2.5 rounded-xl transition-all">$ 11</button>
+                    <button type="button" onclick="selectAmount(38)" class="amount-btn border border-slate-200 hover:border-brand-500 text-xs font-bold py-2.5 rounded-xl transition-all">$ 38</button>
+                </div>
+
+                <!-- Custom Amount -->
+                <div>
+                    <label class="block text-[11px] font-semibold text-slate-500 mb-1">Custom Amount</label>
+                    <div class="relative">
+                        <span id="currency-symbol" class="absolute left-3 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400">$</span>
+                        <input type="number" id="custom-amount" min="100" placeholder="Enter amount" required class="w-full pl-8 pr-4 py-2.5 rounded-xl border border-slate-200 text-sm font-semibold focus:outline-none focus:border-brand-500">
+                    </div>
+                </div>
+
+                <!-- Donor Info -->
+                <div class="space-y-2">
+                    <input type="text" placeholder="Full Name" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-none focus:border-brand-500">
+                    <input type="email" placeholder="Email Address" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-none focus:border-brand-500">
+                </div>
+
+                <button type="submit" class="w-full py-3.5 bg-brand-500 hover:bg-brand-600 text-white font-bold text-sm rounded-xl shadow-lg shadow-brand-500/30 transition-all flex items-center justify-center gap-2">
+                    Proceed to Donate <i class="fa-solid fa-lock text-xs"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
